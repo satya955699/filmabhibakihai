@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Navone from "./navone";
 import Navthree from "./navthree";
 import Navtwo from "./navtwo";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 function Nav() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,25 +14,28 @@ function Nav() {
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+    useGSAP(()=>{
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const heroSection = document.querySelector('.hero-section');
-            if (heroSection) {
-                const heroHeight = heroSection.offsetHeight;
-                const scrollPosition = window.scrollY;
+    })
+
+    // useEffect(() => {
+    //     const handleScroll = () => {
+    //         const heroSection = document.querySelector('.hero-section');
+    //         if (heroSection) {
+    //             const heroHeight = heroSection.offsetHeight;
+    //             const scrollPosition = window.scrollY;
                 
-                if (scrollPosition > heroHeight) {
-                    setIsNavFixed(true);
-                } else {
-                    setIsNavFixed(false);
-                }
-            }
-        };
+    //             if (scrollPosition > heroHeight) {
+    //                 setIsNavFixed(true);
+    //             } else {
+    //                 setIsNavFixed(false);
+    //             }
+    //         }
+    //     };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    //     window.addEventListener('scroll', handleScroll);
+    //     return () => window.removeEventListener('scroll', handleScroll);
+    // }, []);
 
     return (
         <div  className={isNavFixed ? "" : " "}>
