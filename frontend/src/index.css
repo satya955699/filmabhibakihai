@@ -31,3 +31,6 @@
         font-size: 1.875rem;
     }
 }
+body::-webkit-scrollbar {
+    display: none;
+  }

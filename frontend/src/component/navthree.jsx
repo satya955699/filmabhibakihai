@@ -8,7 +8,6 @@ function Navthree(){
           <p className="text-center text-gray-400 mb-8 md:mb-12 px-4 text-sm md:text-base">
             Elevating brands with unique visual storytelling.
           </p>
-  
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 text-center px-4">
             {/* Service 1 */}
             <div className="bg-gray-800 p-6 md:p-8 rounded-lg card-hover-effect hover:transform hover:scale-105 transition-all duration-300">

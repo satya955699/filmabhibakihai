@@ -4,9 +4,6 @@ function name(){
             helo
             thank you storie
              what do you want
-
-
-
              ok then go to git
          </div>
     )

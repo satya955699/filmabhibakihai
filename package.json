@@ -24,5 +24,8 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.11",
     "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "motion": "^12.23.12"
   }
 }

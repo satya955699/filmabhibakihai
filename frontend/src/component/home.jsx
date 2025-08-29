@@ -7,11 +7,15 @@ import Nav from "./nav";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import { motion, useScroll } from "motion/react"
+import { useNavigate} from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function Home() {
+  const navigate=useNavigate()
   const [isMobile, setIsMobile] = useState(false);
+  const { scrollYProgress } = useScroll()
 
   // Dynamic photo data array
   const photoData = [
@@ -32,7 +36,6 @@ function Home() {
     { id: 15, row: 8, col: 3, seed: "8-3", title: "Photo 8-3", description: "Refined elegance for the modern individual." },
     { id: 16, row: 8, col: 8, seed: "8-8", title: "Photo 8-8", description: "Distinctive fashion that speaks volumes." }
   ];
-
   // Refs for each card
   const cardRefs = useRef([]);
   const containerRef = useRef(null);
@@ -58,8 +61,6 @@ function Home() {
     const lenis = new Lenis({
       autoRaf: true,
     });
-
-    // Listen for the scroll event and log the event data
     lenis.on('scroll', ScrollTrigger.update);
     
     cardRefs.current.forEach((ref, index) => {
@@ -95,6 +96,9 @@ function Home() {
 
   return (
     <div>
+      <motion.div className="   md:opacity-100 opacity-0   bg-amber-700 h-1.5" style={{position:"fixed",zIndex:"9999",top:0,left:0,right:0,originX:0,backgroundColor:"red",width:"100vw", scaleX:scrollYProgress}}>
+
+      </motion.div>
       <div className="  m-6    absolute  md:flex hidden ">
 
         <Button className="   " onClick={()=>{scrolltoaction()}}>< ArrowDownwardIcon /></Button>
@@ -113,7 +117,7 @@ function Home() {
               }}
               className="w-60 items-center"
             >
-              <div className="bg-white rounded-lg   shadow-2xl   shadow-gray-900 overflow-hidden">
+              <div className="bg-white rounded-lg   shadow-2xl  opacity-55   overflow-hidden">
                 <img 
                   src={`/${i}.jpg`} 
                   className="bg-cover w-full md:h-[20vh] content-center" 
@@ -176,6 +180,7 @@ function Home() {
             {"FILMABHIBAKIHAI".split("").map((char, idx) => (
               <span
                 key={idx}
+
                 style={{
                   color: idx <= 0 ? "#fff" : "#ff4b2b",
                   transition: "color 0.3s",

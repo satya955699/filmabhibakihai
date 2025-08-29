@@ -1,4 +1,15 @@
 function Navtwo(){
+    const instagramLinks = [
+        { url: "https://www.instagram.com/reel/DNBT45APVjb/?igsh=MW5kNHN6MzBxdTl6aw==" },
+        { url: "https://www.instagram.com/reel/DMp0TkcP_k7/?igsh=MXVhZ3BhZ3A5dmtpbw==" },
+        { url: "https://www.instagram.com/reel/DMigJk9vu5E/?igsh=MXRpMGh0YWljNXdlMA==" },
+        { url: "https://www.instagram.com/reel/DMhSGdcvKTO/?igsh=MXVmdjd2dDRvcDB5dQ==" },
+        { url: "https://www.instagram.com/reel/DMVOQ7RvZ8d/?igsh=ZG05bWtlMGJmeTRz" },
+        { url: "https://www.instagram.com/reel/DMVOQ7RvZ8d/?igsh=ZG05bWtlMGJmeTRz" },
+        { url: "https://www.instagram.com/reel/DJt9KylPm7l/?igsh=MTB2YnV4bnBpaW5uZQ==" }
+    ];
+
+
     return(
         <section id="instagram" className="py-12 md:py-20 bg-gray-800 min-h-screen">
         <div className="container mx-auto px-4 md:px-6">
@@ -21,19 +32,23 @@ function Navtwo(){
                         </div>
                     </div>
                     <div className="flex justify-around md:hidden text-gray-300 mt-4 text-center">
-                        <span><span className="font-bold text-white">128</span><br />posts</span>
-                        <span><span className="font-bold text-white">12.1k</span><br />followers</span>
-                        <span><span className="font-bold text-white">302</span><br />following</span>
+                        <span><span className="font-bold text-white">779</span><br />posts</span>
+                        <span><span className="font-bold text-white">144k</span><br />followers</span>
+                        <span><span className="font-bold text-white">981</span><br />following</span>
                     </div>
                 </div>
                 <div id="instagram-grid" className="grid  grid-cols-2 md:grid-cols-3 gap-2 md:gap-1 p-4 md:p-6">
                     
-                    {Array.from({length:6}).map(()=>{
+                    {Array.from({length:6}).map((e,index)=>{
                         return(
-
-                            <div className="bg-gray-700 h-32 rounded-lg flex items-center justify-center text-gray-400">
-                        <span>Post 1</span>
-                    </div>
+                            <div
+                                className="bg-gray-700 h-32 rounded-lg flex items-center justify-center text-gray-400 bg-cover bg-center"
+                                style={{
+                                    backgroundImage: `url('/insta/${index}.jpg')`
+                                }}
+                            >
+                                <span className=" bg-gray-800 text-orange-600  hover:p-2.5 cursor-pointer transition-all duration-100 bg-opacity-40 px-2 py-1 rounded"> <a target="_blank" href={instagramLinks[index].url}> View Post-{index+1}</a></span>
+                            </div>
                         )
                     })}
                    
